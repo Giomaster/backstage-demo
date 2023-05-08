@@ -23,5 +23,3 @@ spec:
           summary: Creates random dummy
         delete:
           summary: Deletes random dummy
-        update:
-          summary: Update random dummy
