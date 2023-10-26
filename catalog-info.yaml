@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: backstage-portal
+  name: backstage-portal2
   title: Backstage Portal
   description: StoneCo developer portal
   namespace: stone
