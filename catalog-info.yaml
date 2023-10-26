@@ -1,12 +1,29 @@
 apiVersion: backstage.io/v1alpha1
-kind: Location
+kind: Component
 metadata:
-  name: backstage-demo
-  title: Backstage Demo
-  description: A Backstage Demo
+  name: backstage-portal
+  title: Backstage Portal
+  description: StoneCo developer portal
+  namespace: stone
   annotations:
-    backstage.io/techdocs-ref: dir:.
+    legacy.stone.tech/owner-email: globinho@snote.com.eu
+    legacy.stone.tech/prod-date: "2023-05-10" # StoneCo-wide release date
+    stone.tech/cloud-accounts: asw/stora
+    grafana/dashboard-selector: DORAVENTUREIRA
+  labels:
+    stone.tech/endpoint-type: internal
+    legacy.stone.tech/internal-user-auth-base: sso
+    legacy.stone.tech/customer-auth-method: not-applicable
+    legacy.stone.tech/handle-lgpd: "false"
+    legacy.stone.tech/access-request-type: github
+  links:
+    - url: https://blah.com.br
+      title: CD Pipeline
+    - url: https://blah2.com.br
+      title: Monitoring
+    - url: https://blah3.com.br
+      title: Incident Manager
 spec:
-  type: url
-  targets:
-    - ./entities/api.yaml
+  type: website
+  owner: eu/mario
+  lifecycle: production
