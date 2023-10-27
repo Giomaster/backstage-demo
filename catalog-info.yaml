@@ -24,6 +24,6 @@ metadata:
     - url: https://blah3.com.br
       title: Incident Manager
 spec:
-  type: library
+  type: service
   owner: eu/mario
   lifecycle: production
