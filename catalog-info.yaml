@@ -9,7 +9,6 @@ metadata:
     legacy.stone.tech/owner-email: globinho@snote.com.eu
     legacy.stone.tech/prod-date: "2023-05-10" # StoneCo-wide release date
     stone.tech/cloud-accounts: potato,asw/stora,gcp/magali
-    grafana/dashboard-selector: DORAVENTUREIRA
   links:
     - url: https://blah.com.br
       title: CD Pipeline
