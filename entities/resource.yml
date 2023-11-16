@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: backstage-resource-demo
+  description: Demonstrate resource
+  annotations:
+    stone.tech/dbms: cassandra
+spec:
+  type: database
+  owner: artist-relations-team
+  system: artist-engagement-portal
