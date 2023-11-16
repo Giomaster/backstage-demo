@@ -10,12 +10,6 @@ metadata:
     legacy.stone.tech/prod-date: "2023-05-10" # StoneCo-wide release date
     stone.tech/cloud-accounts: potato,asw/stora,gcp/magali
     grafana/dashboard-selector: DORAVENTUREIRA
-  labels:
-    stone.tech/endpoint-type: internal
-    legacy.stone.tech/internal-user-auth-base: sso
-    legacy.stone.tech/customer-auth-method: not-applicable
-    legacy.stone.tech/handle-lgpd: "false"
-    legacy.stone.tech/access-request-type: github
   links:
     - url: https://blah.com.br
       title: CD Pipeline
