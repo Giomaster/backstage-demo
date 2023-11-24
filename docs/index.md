@@ -2,9 +2,9 @@
 
 Este plugin permite para o componente cadastrado a visualização das pipelines de CI/CD da ferramenta [**Azure Pipelines**](https://github.com/backstage/backstage/blob/master/plugins/azure-devops/README.md#azure-pipelines).
 
-!['azure-pipelines-1'](./../img/plugin-azure-pipelines-1.png)
+!['azure-pipelines-1'](./img/plugin-azure-pipelines-1.png)
 
-!['azure-pipelines-2'](./../img/plugin-azure-pipelines-2.png)
+!['azure-pipelines-2'](./img/plugin-azure-pipelines-2.png)
 
 ## Como habilitar
 
