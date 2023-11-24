@@ -12,6 +12,7 @@ metadata:
     #grafana/dashboard-selector: DORAVENTUREIRA
     dev.azure.com/project: backstage-project
     dev.azure.com/build-definition: '[app] backstage-app-CD'
+    backstage.io/techdocs-ref: dir:.
 spec:
   type: service
   owner: stone-payments/foundation-platform-experience
