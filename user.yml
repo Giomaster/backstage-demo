@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: Giomaster
+spec:
+  profile:
+    displayName: Giovanni Martins
+    email: giovanni.martins@hmm.com
