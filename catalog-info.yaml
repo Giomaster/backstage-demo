@@ -5,13 +5,13 @@ metadata:
   title: Backstage Portal
   description: StoneCo developer portal
   namespace: stone
-  annotations:
-    legacy.stone.tech/owner-email: globinho@snote.com.eu
-    legacy.stone.tech/prod-date: "2023-05-10" # StoneCo-wide release date
-    stone.tech/cloud-accounts: potato,asw/stora,gcp/magali
-    grafana/dashboard-selector: DORAVENTUREIRA
-    dev.azure.com/project: backstage-project
-    dev.azure.com/build-definition: '[app] backstage-app-CD'
+  # annotations:
+    # legacy.stone.tech/owner-email: globinho@snote.com.eu
+    # legacy.stone.tech/prod-date: "2023-05-10" # StoneCo-wide release date
+    # tone.tech/cloud-accounts: potato,asw/stora,gcp/magali
+    # grafana/dashboard-selector: DORAVENTUREIRA
+    # dev.azure.com/project: backstage-project
+    # dev.azure.com/build-definition: '[app] backstage-app-CD'
     backstage.io/techdocs-ref: dir:.
 spec:
   type: service
