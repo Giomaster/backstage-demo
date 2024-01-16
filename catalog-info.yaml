@@ -1,21 +1,107 @@
 apiVersion: backstage.io/v1alpha1
-kind: Component
-metadata:
-  name: backstage-portal2
-  title: Backstage Portal
-  description: StoneCo developer portal
-  namespace: stone
-  annotations:
-    # legacy.stone.tech/owner-email: globinho@snote.com.eu
-    # legacy.stone.tech/prod-date: "2023-05-10" # StoneCo-wide release date
-    # tone.tech/cloud-accounts: potato,asw/stora,gcp/magali
-    # grafana/dashboard-selector: DORAVENTUREIRA
-    # dev.azure.com/project: backstage-project
-    # dev.azure.com/build-definition: '[app] backstage-app-CD'
-    backstage.io/techdocs-ref: dir:.
-    dev.azure.com/project: 'Fin-Payments'
-    dev.azure.com/build-definition: 'Caju-CI'
-spec:
-  type: service
-  owner: stone-payments/foundation-platform-experience
-  lifecycle: experimental
+  kind: Component
+  metadata:
+    name: dict-integration
+    title: dict-integration
+    description: O dict-integration é o serviço pelo qual nos comunicamos com o DICT, que nos permite cadastrar, consultar, remover e atualizar chaves Pix; receber, criar, cancelar, confirmar e concluir reivindicações de posse e portabilidades; receber, criar, analisar e cancelar relatos de infração; e criar, cancelar, receber, fechar solicitações de devoluções.
+    namespace: banking
+    annotations:
+      legacy.stone.tech/owner-email: pix@stone.com.br
+      legacy.stone.tech/prod-date: "2023-08-21"
+      # Contas de Production, Sandbox e Homolog respectivamente:
+      stone.tech/cloud-accounts: aws/662018048003,aws/584077526265,aws/129817111992
+    labels:
+      legacy.stone.tech/internal-user-auth-base: own-user-base
+      legacy.stone.tech/access-request-type: not-applicable
+      legacy.stone.tech/handle-lgpd: "false"
+      legacy.stone.tech/customer-auth-method: api-key
+      stone.tech/endpoint-type: none
+    links:
+      - url: https://github.com/dlpco/dic-integration/actions
+        title: CD Pipeline
+      - url: https://stone-banking.datadoghq.com/apm/services/dict-integration
+        title: Monitoring
+        icon: dashboard
+      - url: http://changeme
+        title: Incident Manager
+        icon: warning
+    tags:
+      - go
+      - pix
+  spec:
+    type: service
+    lifecycle: production
+    owner: dlpco/pix-engineering
+    system: pix
+    providesApis:
+      - banking/dict-integration-rest
+    consumesApis:
+      - banking/banking-panda-service-api
+    dependsOn:
+      - component:banking/banking-panda
+      - resource:banking/dict-integration-redis
+  spec:
+    type: database
+    owner: dlpco/pix-engineering
+    system: pix
+    dependsOn:
+      - resource:banking/db-dict-integration
+  ---
+  apiVersion: backstage.io/v1alpha1
+  kind: API
+  metadata:
+    name: dict-integration-rest
+    title: DICT Integration - REST
+    description: API do DICT Integration
+    namespace: banking
+    annotations:
+      github.com/project-slug: dlpco/dict-integration
+    tags:
+      - go
+      - pix
+      - rest
+  spec:
+    type: openapi
+    owner: dlpco/pix-engineering
+    lifecycle: production
+    system: pix
+    definition:
+      $text: https://github.com/dlpco/dict-integration/blob/master/.docs/swagger/swagger.json
+  ---
+  apiVersion: backstage.io/v1alpha1
+  kind: Resource
+  metadata:
+    name: dict-integration-redis
+    namespace: banking
+    title: DICT Integration - Redis
+    description: Redis utilizado pela aplicação "DICT Integration"
+    labels:
+      # Yeah, this should be "redis"! But we don't have this option available yet
+      # and this field is required, until the Backstage team does not add we'll use the "mongodb" option.
+      stone.tech/dbms: mongodb
+    tags:
+      - pix
+  spec:
+    type: database
+    owner: dlpco/pix-engineering
+    system: pix
+    dependencyOf:
+      - component:dict-integration
+  ---
+  apiVersion: backstage.io/v1alpha1
+  kind: Resource
+  metadata:
+    name: db-dict-integration
+    namespace: banking
+    title: DICT Integration - Database
+    description: Banco de dados do "DICT Integration"
+    labels:
+      stone.tech/dbms: postgresql
+    tags:
+      - pix
+  spec:
+    type: database
+    owner: dlpco/pix-engineering
+    system: pix
+    dependencyOf:
+      - component:dict-integration
