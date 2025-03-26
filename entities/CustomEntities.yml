@@ -1,0 +1,21 @@
+apiVersion: kafka.karavela.stone.tech/v1alpha1
+kind: KafkaCluster
+metadata:
+  name: kafkacluster1
+  namespace: stone
+  description: some kafka cluster
+spec:
+  id: a1
+  clusterId: 1
+  name: firstKafkaCluster
+---
+apiVersion: kafka.karavela.stone.tech/v1alpha1
+kind: KafkaTopic
+metadata:
+  name: kafkatopic1
+  namespace: stone
+  description: some kafka topic
+spec:
+  id: t1
+  clusterId: 1
+  name: firstKafkaTopic
