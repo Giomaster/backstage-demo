@@ -1,5 +1,5 @@
 apiVersion: backstage.io/v1alpha1
-kind: KafkaCluster
+kind: Location
 metadata:
   name: kafkacluster1
   namespace: stone
@@ -10,7 +10,7 @@ spec:
   name: firstKafkaCluster
 ---
 apiVersion: backstage.io/v1alpha1
-kind: KafkaTopic
+kind: Resource
 metadata:
   name: kafkatopic1
   namespace: stone
