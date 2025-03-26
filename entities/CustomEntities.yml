@@ -9,6 +9,7 @@ spec:
   id: a1
   clusterId: 1
   name: firstKafkaCluster
+  owner: fon
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Resource
@@ -21,3 +22,4 @@ spec:
   id: t1
   clusterId: 1
   name: firstKafkaTopic
+  owner: fon
