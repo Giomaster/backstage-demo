@@ -5,6 +5,7 @@ metadata:
   namespace: stone
   description: some kafka cluster
 spec:
+  type: fon
   id: a1
   clusterId: 1
   name: firstKafkaCluster
@@ -16,6 +17,7 @@ metadata:
   namespace: stone
   description: some kafka topic
 spec:
+  type: fon
   id: t1
   clusterId: 1
   name: firstKafkaTopic
